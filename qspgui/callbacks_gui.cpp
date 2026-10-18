@@ -17,6 +17,7 @@
 
 #include "callbacks_gui.h"
 #include "comtools.h"
+#include "hostdb.h"
 
 QSPFrame *QSPCallbacks::m_frame;
 bool QSPCallbacks::m_isHtml;
@@ -64,6 +65,10 @@ void QSPCallbacks::Init(QSPFrame *frame)
     /* Prepare version values */
     m_versionInfo["player"] = "Classic";
     m_versionInfo["platform"] = QSPTools::GetPlatform();
+
+    /* Host functions & the profile of the player, before any game gets loaded */
+    if (!QSPHostDb::Register(frame) || !QSPRegisterProfile(QSP_STATIC_STR(QSP_FMT("classic")), QSP_STATIC_STR(QSP_FMT("1.0.0"))))
+        wxLogError("Can't register host functions");
 }
 
 void QSPCallbacks::DeInit()

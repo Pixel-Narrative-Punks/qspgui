@@ -112,6 +112,7 @@ set(QSPGUI_SOURCES
 	qspgui/callbacks_gui.cpp
 	qspgui/comtools.cpp
 	qspgui/frame.cpp
+	qspgui/hostdb.cpp
 	qspgui/imgcanvas.cpp
 	qspgui/initevent.cpp
 	qspgui/inputbox.cpp
